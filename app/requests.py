@@ -10,7 +10,7 @@ api_key = app.config['NEWS_API_KEY']
 # Getting the movie base url
 base_url = app.config["NEWS_SOURCES_BASE_URL"]
 
-def get_sources(source):
+def get_sources(sources):
     """
     Function to get the json response to our url request
     """
@@ -25,5 +25,23 @@ def get_sources(source):
         if get_sources_response['results']:
             sources_results_list = get_sources_response['results']
             sources_results =process_results(sources_results_list)
+
+    return sources_results
+
+def process_results(sources_results):
+    """
+    Function  that processes the movie result and transform them to a list of Objects
+    """
+    sources_results = []
+    for single_source in sources_list:
+        id = single_source.get('id')
+        name = single_source.get('name')
+        description = single_source.get('description')
+        url = single_source.get('url')
+        category = single_source.get('category')
+        country = single_source.get('country')
+
+        source_object = Sources(id, name, description, url, category, country)
+        sources_results.append(source_object)
 
     return sources_results
