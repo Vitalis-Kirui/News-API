@@ -1,3 +1,20 @@
-<h1>{{title}}</h1>
-<hr>
-<p>{{heading}}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>{{heading}}</title>
+    {% endif %}
+
+</head>
+<body>
+
+    <h1>{{title}}</h1>
+    <hr>
+    <p>{{heading}}</p>
+    
+</body>
+</html>

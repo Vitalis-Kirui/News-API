@@ -1,3 +1,20 @@
-<h1>{{articles_title}}</h1>
-<hr>
-<p>Right now!, we are in {{id}} source</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% if articles_title %}
+    <title>{{articles_title}}</title>
+    {% else %}
+    <title>{{id}}</title>
+    {% endif %}
+    
+</head>
+<body>
+
+    <h1>This page will have all the artcles from a selected source.</h1>
+    <hr>
+    <p>Right now!, we are in {{id}} source</p>
+    
+</body>
+</html>
