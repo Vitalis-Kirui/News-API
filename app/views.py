@@ -12,9 +12,13 @@ def index():
     heading = "Welcome to News Centre, A site for all the news from various sources. This page will have all the news outlets/sources"
 
     #Getting the sources
-    sources_display = get_sources('sources')
-    print(sources_display)
-    return render_template('index.html', title=title, heading=heading, sources_display = sources_display)
+    general_sources = get_sources('general')
+    sports_sources = get_sources('sports')
+    business_sources = get_sources('business')
+    entertainment_sources = get_sources('entertainment')
+    tech_sources = get_sources('technology')
+
+    return render_template('index.html', title=title, heading=heading, general = general_sources, sports = sports_sources, business = business_sources, entertainment = entertainment_sources, tech = tech_sources)
 
 @app.route('/sources/<source_id>')
 def articles(source_id):
