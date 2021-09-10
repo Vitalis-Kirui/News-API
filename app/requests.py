@@ -22,18 +22,18 @@ def get_sources(sources):
 
         sources_results = None
 
-        if get_sources_response['results']:
-            sources_results_list = get_sources_response['results']
+        if get_sources_response['sources']:
+            sources_results_list = get_sources_response['sources']
             sources_results =process_results(sources_results_list)
 
     return sources_results
 
-def process_results(sources_results):
+def process_results(sources_resulting_list):
     """
     Function  that processes the movie result and transform them to a list of Objects
     """
     sources_results = []
-    for single_source in sources_list:
+    for single_source in sources_resulting_list:
         id = single_source.get('id')
         name = single_source.get('name')
         description = single_source.get('description')
@@ -41,7 +41,7 @@ def process_results(sources_results):
         category = single_source.get('category')
         country = single_source.get('country')
 
-        source_object = Sources(id, name, description, url, category, country)
+        source_object = Source(id, name, description, url, category, country)
         sources_results.append(source_object)
 
     return sources_results

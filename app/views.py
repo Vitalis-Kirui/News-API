@@ -1,5 +1,6 @@
 from flask import render_template
 from app import app
+from .requests import get_sources
 
 #Index route and view function
 @app.route('/')
@@ -12,6 +13,7 @@ def index():
 
     #Getting the sources
     sources_display = get_sources('sources')
+    print(sources_display)
     return render_template('index.html', title=title, heading=heading, sources_display = sources_display)
 
 @app.route('/sources/<source_id>')

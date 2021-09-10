@@ -15,6 +15,15 @@
     <h1>{{title}}</h1>
     <hr>
     <p>{{heading}}</p>
+
+    <!-- sources section -->
+    <h1>Various News Sources</h1>
+    <hr>
+    <ul>
+        {% for source in sources_display %}
+            <li>{{source.name}}</li>
+        {% endfor %}
+    </ul>
     
 </body>
 </html>
