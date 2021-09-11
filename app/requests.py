@@ -63,15 +63,27 @@ def get_articles(id):
         articles_data = url.read()
         articles_response = json.loads(articles_data)
 
-        articles_object = None
+        articles_results = None
 
-        if articles_response:
-            title = articles_response.get('title')
-            description = articles_response.get('description')
-            url = articles_response.get('url')
-            urlToImage = articles_response.get('urlToImage')
-            publishedAt = articles_response.get('publishedAt')
+        if articles_response['articles']:
+            source_articles_list = articles_response['articles']
+            articles_results = process_articles_results(source_articles_list)
 
-            articles_object = Articles(title, description, url, urlToImage,publishedAt)
+    return articles_results
 
-    return articles_object
+def process_articles_results(articles_results_list):
+    """
+    Function that process the list of article from the request.
+    """
+    articles_results = []
+    for single_article in articles_results_list:
+        title = single_article.get('title')
+        description = single_source.get('description')
+        url = single_source.get('url')
+        urlToImage = single_source.get('urlToImage')
+        publishedAt = single_source.get('publishedAt')
+
+        article_object = Articles(title, description, url, urlToImage, publishedAt)
+        articles_results.append(article_object)
+
+    return articles_results
