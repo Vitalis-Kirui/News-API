@@ -1,0 +1,20 @@
+import  unittest
+from models import articles
+
+Articles = articles.Articles
+
+class ArticlesTest(unittest.TestCase):
+    """
+    Test class to test the behaviour of the articles class.
+    """
+    def setUp(self):
+        """
+        Set up method that is run everytime before every test.
+        """
+        self.new_article = Articles('Cheborgei', 'Ngusero Sambu', 'www.cheborgeisambu.com', 'www.cheborgeiimage.com','14/3/1998')
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_article, Articles))
+
+if __name__ == '__main__':
+    unittest.main()

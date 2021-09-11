@@ -8,13 +8,17 @@ Source = sources.Sources
 api_key = app.config['NEWS_API_KEY']
 
 # Getting the source base url
-base_url = app.config["NEWS_SOURCES_BASE_URL"]
+sources_base_url = app.config["NEWS_SOURCES_BASE_URL"]
+
+#Getting source articles base url
+articles_base_url = app.config["SOURCE_ARTICLES_BASE_URL"]
+
 
 def get_sources(category):
     """
     Function to get the json response to our url request
     """
-    get_sources_url = base_url.format(category, api_key)
+    get_sources_url = sources_base_url.format(category, api_key)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
