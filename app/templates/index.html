@@ -1,3 +1,4 @@
+{% import 'macros.html' as macro %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,16 +40,7 @@
     <!-- General section -->
     <ul>
         <h2>General News Sources</h2>
-        {% for source in general %}
-        <h3>
-            <li>{{source.name}}</li>
-        </h3>
-        <li><span id="directions">About :</span> {{source.description}}</li>
-        <li><span id="directions">Country :</span> {{source.country}}</li>
-        <a href="">
-            <li><span id="directions">Link :</span>{{source.url}}</li>
-        </a>
-        {% endfor %}
+        {{macro.display_sources_list(general)}}
     </ul>
 
     <!-- Sports section -->
@@ -56,16 +48,7 @@
     <hr>
     <ul>
         <h2>Sports News Sources</h2>
-        {% for source in sports %}
-        <h3>
-            <li>{{source.name}}</li>
-        </h3>
-        <li><span id="directions">About :</span> {{source.description}}</li>
-        <li><span id="directions">Country :</span> {{source.country}}</li>
-        <a href="">
-            <li><span id="directions">Link :</span>{{source.url}}</li>
-        </a>
-        {% endfor %}
+        {{macro.display_sources_list(sports)}}
     </ul>
 
     <!-- Business section -->
@@ -73,16 +56,7 @@
     <hr>
     <ul>
         <h2>Business News Sources</h2>
-        {% for source in business %}
-        <h3>
-            <li>{{source.name}}</li>
-        </h3>
-        <li><span id="directions">About :</span> {{source.description}}</li>
-        <li><span id="directions">Country :</span> {{source.country}}</li>
-        <a href="">
-            <li><span id="directions">Link :</span>{{source.url}}</li>
-        </a>
-        {% endfor %}
+        {{macro.display_sources_list(business)}}
     </ul>
 
     <!-- Entertainment section -->
@@ -90,16 +64,7 @@
     <hr>
     <ul>
         <h2>Entertainment News Sources</h2>
-        {% for source in entertainment %}
-        <h3>
-            <li>{{source.name}}</li>
-        </h3>
-        <li><span id="directions">About :</span> {{source.description}}</li>
-        <li><span id="directions">Country :</span> {{source.country}}</li>
-        <a href="">
-            <li><span id="directions">Link :</span>{{source.url}}</li>
-        </a>
-        {% endfor %}
+        {{macro.display_sources_list(entertainment)}}
     </ul>
 
     <!-- technology section -->
@@ -107,16 +72,7 @@
     <hr>
     <ul>
         <h2>Technology News Sources</h2>
-        {% for source in tech %}
-        <h3>
-            <li>{{source.name}}</li>
-        </h3>
-        <li><span id="directions">About :</span> {{source.description}}</li>
-        <li><span id="directions">Country :</span> {{source.country}}</li>
-        <a href="">
-            <li><span id="directions">Link :</span>{{source.url}}</li>
-        </a>
-        {% endfor %}
+        {{macro.display_sources_list(tech)}}
     </ul>
 
 </body>

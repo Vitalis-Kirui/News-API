@@ -1,0 +1,8 @@
+{% macro display_sources_list(sources_resulting_list) %}
+    {% for source in sources_resulting_list %}
+        <h3><li>{{source.name}}</li></h3>
+        <li><span id="directions">About :</span> {{source.description}}</li>
+        <li><span id="directions">Country :</span> {{source.country}}</li>
+        <a href=""><li><span id="directions">Link :</span>{{source.url}}</li></a>
+    {% endfor %}
+{% endmacro %}
