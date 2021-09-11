@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 <!DOCTYPE html>
 <html lang="en">
@@ -27,54 +28,54 @@
 
 </head>
 
-<body>
-
+    <!-- Content block -->
+    {% block content %}
     <h1>{{title}}</h1>
     <hr>
     <p>{{heading}}</p>
-
+    
     <!-- sources section -->
     <h1> News Sources Categories</h1>
     <hr>
-
+    
     <!-- General section -->
     <ul>
         <h2>General News Sources</h2>
         {{macro.display_sources_list(general)}}
     </ul>
-
+    
     <!-- Sports section -->
-
+    
     <hr>
     <ul>
         <h2>Sports News Sources</h2>
         {{macro.display_sources_list(sports)}}
     </ul>
-
+    
     <!-- Business section -->
-
+    
     <hr>
     <ul>
         <h2>Business News Sources</h2>
         {{macro.display_sources_list(business)}}
     </ul>
-
+    
     <!-- Entertainment section -->
-
+    
     <hr>
     <ul>
         <h2>Entertainment News Sources</h2>
         {{macro.display_sources_list(entertainment)}}
     </ul>
-
+    
     <!-- technology section -->
-
+    
     <hr>
     <ul>
         <h2>Technology News Sources</h2>
         {{macro.display_sources_list(tech)}}
     </ul>
 
-</body>
+    {% endblock %}
 
 </html>

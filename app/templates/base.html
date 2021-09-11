@@ -1,0 +1,39 @@
+{% import 'macros.html' as macro %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>{{heading}}</title>
+    {% endif %}
+
+    <style>
+        h2 {
+            color: red
+        }
+
+        h3 {
+            color: blue
+        }
+
+        #directions {
+            color: tomato
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Content Block -->
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+
+</html>
