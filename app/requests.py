@@ -7,7 +7,7 @@ Source = sources.Sources
 #Getting the api key
 api_key = app.config['NEWS_API_KEY']
 
-# Getting the movie base url
+# Getting the source base url
 base_url = app.config["NEWS_SOURCES_BASE_URL"]
 
 def get_sources(category):
@@ -37,11 +37,11 @@ def process_results(sources_resulting_list):
         id = single_source.get('id')
         name = single_source.get('name')
         description = single_source.get('description')
-        url = single_source.get('url')
         category = single_source.get('category')
+        url = single_source.get('url')
         country = single_source.get('country')
 
-        source_object = Source(id, name, description, url, category, country)
+        source_object = Source(id, name, description, category, url, country)
         sources_results.append(source_object)
 
     return sources_results

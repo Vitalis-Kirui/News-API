@@ -12,7 +12,8 @@ class SourcesTest(unittest.TestCase):
         """
         Set up method that is run before every test.
         """
-        self.new_source = Source('citizen', 'Citizen TV', 'Kenya number TV station', 'www.citizentvkenya.co.ke', 'general', 'Kenya')
+        self.new_source = Source('citizen', 'Citizen TV',
+                                 'Kenya number TV station', 'general','www.citizentvkenya.co.ke', 'Kenya')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_source, Source))
