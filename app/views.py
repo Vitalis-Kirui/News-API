@@ -26,4 +26,7 @@ def articles(id):
     View page function that returns articles page and and its content.
     """
     articles_title = "Articles"
-    return render_template("articles.html",id = source_id, articles_title = articles_title )
+    read_article = get_articles(id)
+    title = f'{read_article.title}'
+
+    return render_template("articles.html", id = id, title=title, read_article=read_article, articles_title = articles_title )

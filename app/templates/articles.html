@@ -1,3 +1,4 @@
+{% extends 'base.html'%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +11,25 @@
     {% endif %}
     
 </head>
-<body>
 
-    <h1>This page will have all the artcles from a selected source.</h1>
-    <hr>
-    <p>Right now!, we are in {{id}} source</p>
+    <!-- Content block -->
+    {% block content %}
+    <div class="container">
+
+        <h1>{{read_article.title}}</h1>
+        <hr>
+
+        <div class="row align-items-center">
+            <div class="col">
+                {{read_article.urlToImage}}
+            </div>
+            <div class="col">
+                {{read_article.description}}
+            </div>
+        </div>
     
-</body>
+    </div>
+    {% endblock %}
+        
+    
 </html>
