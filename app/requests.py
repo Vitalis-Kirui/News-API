@@ -88,7 +88,8 @@ def process_articles_results(articles_results_list):
         publishing_date = datetime.strptime(publishedAt, '%Y-%m-%dT%H:%M:%SZ')
         date = publishing_date.strftime('%d.%m.%Y')
 
-        article_object = Articles(title, description, url, urlToImage, date)
-        articles_results.append(article_object)
+        if urlToImage:
+            article_object = Articles(title, description, url, urlToImage, date)
+            articles_results.append(article_object)
 
     return articles_results
