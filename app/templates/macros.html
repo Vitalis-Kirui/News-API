@@ -4,5 +4,6 @@
         <li><span id="directions">About :</span> {{source.description}}</li>
         <li><span id="directions">Country :</span> {{source.country}}</li>
         <a href=""><li><span id="directions">Link :</span>{{source.url}}</li></a>
+        <a href="/sources/{{source.id}}" class="btn btn-sm btn-primary">Visit {{source.name}}</a>
     {% endfor %}
 {% endmacro %}

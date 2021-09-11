@@ -14,19 +14,21 @@
 
     <!-- Content block -->
     {% block content %}
+
     <div class="container">
 
-        <!-- <h1>{{read_article.title}}</h1> -->
-        <hr>
-
-        <div class="row align-items-center">
-            <div class="col">
-                <!-- {{read_article.urlToImage}} -->
-            </div>
-            <div class="col">
-                <!-- {{read_article.description}} -->
-            </div>
-        </div>
+        <ul>
+            {% for article in read_article %}
+            <h3>
+                <li>{{article.title}}</li>
+            </h3>
+            <hr>
+            <li>{{article.description}}</li>
+            <a href=""><li>{{article.url}}</li></a>
+            <img src="{{article.urlToImage}}" alt="No image for this article">
+            <li>Published on : {{article.date}}</li>
+            {% endfor %}
+        </ul>
     
     </div>
     {% endblock %}

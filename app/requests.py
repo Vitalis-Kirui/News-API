@@ -2,6 +2,7 @@ from app import app
 import urllib.request,json
 from .models import sources
 from .models import articles
+from datetime import datetime
 
 Source = sources.Sources
 
@@ -78,12 +79,16 @@ def process_articles_results(articles_results_list):
     articles_results = []
     for single_article in articles_results_list:
         title = single_article.get('title')
-        description = single_source.get('description')
-        url = single_source.get('url')
-        urlToImage = single_source.get('urlToImage')
-        publishedAt = single_source.get('publishedAt')
+        description = single_article.get('description')
+        url = single_article.get('url')
+        urlToImage = single_article.get('urlToImage')
+        publishedAt = single_article.get('publishedAt')
 
-        article_object = Articles(title, description, url, urlToImage, publishedAt)
+        # convert date from json to string and backto my specific  format
+        publishing_date = datetime.strptime(publishedAt, '%Y-%m-%dT%H:%M:%SZ')
+        date = publishing_date.strftime('%d.%m.%Y')
+
+        article_object = Articles(title, description, url, urlToImage, date)
         articles_results.append(article_object)
 
     return articles_results
