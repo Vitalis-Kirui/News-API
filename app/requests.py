@@ -1,21 +1,21 @@
-from app import app
 import urllib.request,json
-from .models import sources
-from .models import articles
+from .models import Sources, Articles
 from datetime import datetime
 
-Source = sources.Sources
-
-Articles = articles.Articles
-
 #Getting the api key
-api_key = app.config['NEWS_API_KEY']
+api_key = None
 
 # Getting the source base url
-sources_base_url = app.config["NEWS_SOURCES_BASE_URL"]
+sources_base_url = None
 
 #Getting source articles base url
-articles_base_url = app.config["SOURCE_ARTICLES_BASE_URL"]
+articles_base_url = None
+
+def configure_request(app):
+    global api_key, sources_base_url, articles_base_url
+    api_key = app.config['NEWS_API_KEY']
+    sources_base_url = app.config['NEWS_SOURCES_BASE_URL']
+    articles_base_url = app.config['SOURCE_ARTICLES_BASE_URL']
 
 
 def get_sources(category):
@@ -88,8 +88,8 @@ def process_articles_results(articles_results_list):
         publishing_date = datetime.strptime(publishedAt, '%Y-%m-%dT%H:%M:%SZ')
         date = publishing_date.strftime('%d.%m.%Y')
 
-        if urlToImage:
-            article_object = Articles(title, description, url, urlToImage, date)
-            articles_results.append(article_object)
+
+        article_object = Articles(title, description, url, urlToImage, date)
+        articles_results.append(article_object)
 
     return articles_results

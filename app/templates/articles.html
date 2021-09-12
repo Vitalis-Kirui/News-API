@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
@@ -9,29 +10,42 @@
     {% else %}
     <title>{{id}}</title>
     {% endif %}
-    
+
+    <!-- Styles block -->
+    {% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    {% endblock %}
+
 </head>
 
-    <!-- Content block -->
-    {% block content %}
+<!-- Content block -->
+{% block content %}
+<div class="container">
 
-    <div class="container">
-
-        <ul>
-            {% for article in read_article %}
-            <h3>
-                <li>{{article.title}}</li>
+    <div class="row">
+        {%for article in read_article%}
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+            <h3 style="color:blue; font-weight:600;font-family: 'Cinzel Decorative', cursive;">
+                <li>{{article.title | truncate(50)}}</li>
             </h3>
             <hr>
-            <li>{{article.description}}</li>
-            <a href=""><li>{{article.url}}</li></a>
-            <img src="{{article.urlToImage}}" alt="No image for this article" height = "250px" class="img-responsive">
-            <li>Published on : {{article.date}}</li>
-            {% endfor %}
-        </ul>
-    
+            <img src="{{article.urlToImage}}" alt="No image for this article" class="img-responsive">
+            <h5 style="font-family: 'Charm', cursive; font-size:24px"> {{ article.description}}</h5>
+            <p style="font-family: 'Charm', cursive; font-size:24px"><strong>Published on:{{article.publishedAt
+                    }}</strong></p>
+        </div>
+        {% endfor %}
     </div>
-    {% endblock %}
-        
-    
+</div>
+{% endblock %}
+
+
 </html>
