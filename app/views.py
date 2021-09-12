@@ -9,7 +9,7 @@ def index():
     View root page function that returns the index page and it's content
     """
     title  = "News Centre. "
-    heading = "Welcome to News Centre, A site for all the news from various sources. This page will have all the news outlets/sources"
+    heading = "Welcome to News Centre, A site for all the news from various sources."
 
     #Getting the sources
     general_sources = get_sources('general')

@@ -1,9 +1,9 @@
 {% macro display_sources_list(sources_resulting_list) %}
     {% for source in sources_resulting_list %}
-        <h3><li>{{source.name}}</li></h3>
-        <li><span id="directions">About :</span> {{source.description}}</li>
-        <li><span id="directions">Country :</span> {{source.country}}</li>
-        <a href=""><li><span id="directions">Link :</span>{{source.url}}</li></a>
-        <a href="/sources/{{source.id}}" class="btn btn-sm btn-primary">Visit {{source.name}}</a>
+        <h3 style = "color:blue; font-weight:600;font-family: 'Cinzel Decorative', cursive;"><li>{{source.name}}</li></h3>
+        <li style = "font-family: 'Charm', cursive; font-size:24px">ABOUT SOURCE: {{source.description}}</li>
+        <li style = "font-family: 'Charm', cursive; font-size:24px">COUNTRY: {{source.country}}</li>
+        <a href=""><li style = "font-family: 'Charm', cursive; font-size:24px">OFFICIAL SITE: {{source.url}}</li></a>
+        <a href="/sources/{{source.id}}" class="btn btn-primary">See {{source.name}} news articles</a>
     {% endfor %}
 {% endmacro %}

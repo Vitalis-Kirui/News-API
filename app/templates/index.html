@@ -1,80 +1,75 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
+
 
 <head>
-    <meta charset="UTF-8">
+    <!-- Styles block -->    
+    {% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
 
-    {% if title %}
-    <title>{{title}}</title>
-    {% else %}
-    <title>{{heading}}</title>
-    {% endif %}
-
-    <style>
-        h2 {
-            color: red
-        }
-
-        h3 {
-            color: blue
-        }
-
-        #directions {
-            color: tomato
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    {% endblock %}
 
 </head>
 
     <!-- Content block -->
     {% block content %}
-    <h1>{{title}}</h1>
-    <hr>
-    <p>{{heading}}</p>
     
-    <!-- sources section -->
-    <h1> News Sources Categories</h1>
-    <hr>
-    
-    <!-- General section -->
-    <ul>
-        <h2>General News Sources</h2>
-        {{macro.display_sources_list(general)}}
-    </ul>
-    
-    <!-- Sports section -->
-    
-    <hr>
-    <ul>
-        <h2>Sports News Sources</h2>
-        {{macro.display_sources_list(sports)}}
-    </ul>
-    
-    <!-- Business section -->
-    
-    <hr>
-    <ul>
-        <h2>Business News Sources</h2>
-        {{macro.display_sources_list(business)}}
-    </ul>
-    
-    <!-- Entertainment section -->
-    
-    <hr>
-    <ul>
-        <h2>Entertainment News Sources</h2>
-        {{macro.display_sources_list(entertainment)}}
-    </ul>
-    
-    <!-- technology section -->
-    
-    <hr>
-    <ul>
-        <h2>Technology News Sources</h2>
-        {{macro.display_sources_list(tech)}}
-    </ul>
+    <div class="container">
+
+        <h1 style = "text-align:center; color:blue; font-weight:600;font-family: 'Cinzel Decorative', cursive;">{{title}}</h1>
+        <hr>
+        <p style="text-align:center; font-size: 24px;">{{heading}}</p>
+        <hr>
+        
+        <!-- General section -->
+        <ul>
+            <h2 style = "text-align:center; color:blue; font-weight:600;font-family: 'Cinzel Decorative', cursive;">General News Sources</h2>
+            {{macro.display_sources_list(general)}}
+        </ul>
+        
+        <!-- Sports section -->
+        
+        <hr>
+        <ul>
+            <h2 style = "text-align:center; color:blue; font-weight:600;font-family: 'Cinzel Decorative', cursive;">Sports News Sources</h2>
+            {{macro.display_sources_list(sports)}}
+        </ul>
+        
+        <!-- Business section -->
+        
+        <hr>
+        <ul>
+            <h2 style = "text-align:center; color:blue; font-weight:600;font-family: 'Cinzel Decorative', cursive;">Business News Sources</h2>
+            {{macro.display_sources_list(business)}}
+        </ul>
+        
+        <!-- Entertainment section -->
+        
+        <hr>
+        <ul>
+            <h2 style = "text-align:center; color:blue; font-weight:600;font-family: 'Cinzel Decorative', cursive;">Entertainment News Sources</h2>
+            {{macro.display_sources_list(entertainment)}}
+        </ul>
+        
+        <!-- technology section -->
+        
+        <hr>
+        <ul>
+            <h2 style = "text-align:center; color:blue; font-weight:600;font-family: 'Cinzel Decorative', cursive;">Technology News Sources</h2>
+            {{macro.display_sources_list(tech)}}
+        </ul>
+
+    </div>
 
     {% endblock %}
 
