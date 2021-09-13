@@ -1,4 +1,3 @@
-*.pyc
 virtual/
-instance/
+*.pyc
 start.sh
