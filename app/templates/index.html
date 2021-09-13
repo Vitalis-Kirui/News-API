@@ -31,13 +31,6 @@
         <p style = "font-family: 'Charm', cursive; font-size:24px">{{heading}}</p>
         <hr>
         
-        <!-- General section -->
-        <ul>
-            <h2 style = "text-align:center; color:red; font-weight:600;font-family: 'Cinzel Decorative', cursive;">General News Sources</h2>
-            <hr>
-            {{macro.display_sources_list(general)}}
-        </ul>
-        
         <!-- Sports section -->
         
         <ul>
@@ -68,6 +61,14 @@
             <h2 style = "text-align:center; color:red; font-weight:600;font-family: 'Cinzel Decorative', cursive;">Technology News Sources</h2>
             <hr>
             {{macro.display_sources_list(tech)}}
+        </ul>
+
+        <!-- General section -->
+        <ul>
+            <h2 style="text-align:center; color:red; font-weight:600;font-family: 'Cinzel Decorative', cursive;">General News
+                Sources</h2>
+            <hr>
+            {{macro.display_sources_list(general)}}
         </ul>
 
     </div>
