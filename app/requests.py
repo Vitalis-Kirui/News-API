@@ -49,7 +49,7 @@ def process_results(sources_resulting_list):
         url = single_source.get('url')
         country = single_source.get('country')
 
-        source_object = Source(id, name, description, category, url, country)
+        source_object = Sources(id, name, description, category, url, country)
         sources_results.append(source_object)
 
     return sources_results
