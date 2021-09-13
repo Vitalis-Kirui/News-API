@@ -1,9 +1,6 @@
 {% macro display_sources_list(sources_resulting_list) %}
-    <div class="row">
 
         {% for source in sources_resulting_list %}
-
-        <div class="col-md-4">
 
             <h3 style="color:blue; font-weight:600;font-family: 'Cinzel Decorative', cursive;">
                 <li>{{source.name}}</li>
@@ -15,10 +12,7 @@
             </a>
             <a href="/sources/{{source.id}}" class="btn btn-primary" style="font: size 26px;font-family: 'Charm', cursive;">See
                 {{source.name}} news articles</a>
-
-        </div>
         
         {% endfor %}
 
-    </div>
 {% endmacro %}
